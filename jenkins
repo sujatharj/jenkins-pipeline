@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone'){
             steps {
-                git credentialsId: 'e2408454-3e0f-4ec4-87df-00dfaaaf8ed4', url: 'https://github.com/monica261195/c_projects'
+                git credentialsId: 'e2408454-3e0f-4ec4-87df-00dfaaaf8ed4', url: 'https://github.com/sujatharj/jenkins-pipeline.git'
 
             }
         }
