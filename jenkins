@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone'){
+            steps {
+                git credentialsId: 'e2408454-3e0f-4ec4-87df-00dfaaaf8ed4', url: 'https://github.com/monica261195/c_projects'
+
+            }
+        }
+        stage('Build'){
+            steps {
+                sh '''
+                cd /var/lib/jenkins/workspace/c-prjct-complete
+                make
+                '''
+            }
+        }
+        stage('Archive'){
+            steps {
+                archiveArtifacts artifacts: '*/.exe', followSymlinks: false
+            }
+        }
+    }
+}
